@@ -1,0 +1,25 @@
+{
+  "name": "maqami-travel-agent-vercel-ai-sdk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Travel assistant using the Vercel AI SDK with the MAQAMI Travel remote MCP server",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsx travel-agent.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/mcp": "^2.0.67",
+    "@ai-sdk/openai": "^4.0.84",
+    "ai": "^7.0.128"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
