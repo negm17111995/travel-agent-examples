@@ -8,7 +8,7 @@ A terminal travel assistant built with LangChain's `create_agent` (which runs on
 
 - `MCPAdapter("https://mcp.maqami.co/")` infers Streamable HTTP from the URL, and `list_tools()` returns LangChain tools. No API key is needed for MAQAMI.
 - Each tool keeps the server's annotations under `tool.metadata["mcp"]`. Tools that are not marked read-only go into `HumanInTheLoopMiddleware(interrupt_on=...)`.
-- When the agent wants to prebook or book, the graph pauses with `__interrupt__`. The script asks you to approve or reject, then resumes the same thread with `Command(resume={"decisions": [...]})`. An `InMemorySaver` checkpointer keeps the paused state.
+- When the agent wants to prebook or cancel, the graph pauses with `__interrupt__`. The script asks you to approve or reject, then resumes the same thread with `Command(resume={"decisions": [...]})`. An `InMemorySaver` checkpointer keeps the paused state.
 
 ## Run
 
@@ -19,7 +19,7 @@ export OPENAI_API_KEY=...
 python travel_agent.py "Search flights from Dubai to London on 10 December for one adult"
 ```
 
-Booking creates a real reservation and needs guest and payment details. Only approve a prebook or book call when you mean it.
+Prebook holds a real rate, and the customer pays only on book.maqami.co through the `checkoutUrl` it returns. Only approve a call that is not read-only when you mean it.
 
 ## Options
 

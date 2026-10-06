@@ -6,7 +6,7 @@
 
 Small, runnable examples that connect popular agent frameworks to the [MAQAMI Travel MCP server](https://github.com/negm17111995/mcp-server), the official remote MCP server for [MAQAMI](https://maqami.co), a hotel and flight booking platform with 3M+ hotels.
 
-The server is hosted at `https://mcp.maqami.co/` (Streamable HTTP, no API key). Each example builds a terminal travel assistant that can search hotels and flights, look up places, airports and hotel details, and then prebook and book after you approve.
+The server is hosted at `https://mcp.maqami.co/` (Streamable HTTP, no API key). Each example builds a terminal travel assistant that can search hotels and flights, look up cities, airports and hotel details, and then, after you approve, get a secure checkout link on book.maqami.co for the room or fare you chose.
 
 | Example | Language | Framework |
 | --- | --- | --- |
@@ -16,7 +16,7 @@ The server is hosted at `https://mcp.maqami.co/` (Streamable HTTP, no API key). 
 
 ## Booking safety
 
-Prebooking and booking create real reservations and need guest and payment details. Every example therefore uses the same rule:
+Prebook holds a real rate, and the amend and cancel tools change real bookings. Customers pay only on book.maqami.co, through the `checkoutUrl` the server returns. Every example uses the same rule:
 
 - Tools that the server marks as read-only (`readOnlyHint: true`) run without asking.
 - Every other tool pauses the agent and asks you to approve or reject the call in the terminal, showing the tool name and arguments.
