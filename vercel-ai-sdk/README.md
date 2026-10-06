@@ -6,7 +6,7 @@ A terminal travel assistant built with the Vercel AI SDK. It connects to the MAQ
 
 - `createMCPClient({ transport: { type: 'http', url: 'https://mcp.maqami.co/' } })` connects over Streamable HTTP. No API key is needed for MAQAMI.
 - `client.listTools()` returns the tool definitions with their annotations, and `client.toolsFromDefinitions()` turns them into AI SDK tools.
-- `generateText({ toolApproval })` returns `'user-approval'` for any tool that is not marked read-only. When the model wants to prebook or book, the result contains `tool-approval-request` parts. The script asks you, appends `tool-approval-response` parts to the conversation, and calls `generateText` again.
+- `generateText({ toolApproval })` returns `'user-approval'` for any tool that is not marked read-only. When the model wants to prebook or cancel, the result contains `tool-approval-request` parts. The script asks you, appends `tool-approval-response` parts to the conversation, and calls `generateText` again.
 
 ## Run
 
@@ -18,7 +18,7 @@ export OPENAI_API_KEY=...
 npm start -- "Find 4-star hotels in Lisbon for 2 adults, 12 to 15 May"
 ```
 
-Booking creates a real reservation and needs guest and payment details. Only approve a prebook or book call when you mean it.
+Prebook holds a real rate, and the customer pays only on book.maqami.co through the `checkoutUrl` it returns. Only approve a call that is not read-only when you mean it.
 
 ## Options
 

@@ -2,7 +2,7 @@
 
 It uses LangChain's built-in MCP support (`langchain.mcp`, which replaced the
 standalone langchain-mcp-adapters package). Read-only tools run freely. Tools the
-server does not mark as read-only, such as prebook or book, are interrupted by
+server does not mark as read-only, such as prebook or cancel, are interrupted by
 HumanInTheLoopMiddleware so you can approve or reject them in the terminal.
 
 Run:
@@ -31,10 +31,12 @@ MODEL = os.environ.get("LANGCHAIN_MODEL", "openai:gpt-5.4-mini")
 
 SYSTEM_PROMPT = """\
 You are a travel assistant. Use the MAQAMI Travel tools to search hotels and
-flights, look up places, airports and hotel details, and answer with concrete
+flights, look up cities, airports and hotel details, and answer with concrete
 options (name, dates, price, currency, cancellation terms when available).
-Prebooking and booking create real reservations: only call those tools after
-the user has clearly chosen an option and confirmed the final price.
+Customers book and pay only on book.maqami.co. After the user has chosen an
+option and confirmed the final price, call post_rates_prebook (hotels) or
+post_flights_verify (flights) and give them the checkoutUrl it returns. Never
+ask for card or passport details in the chat.
 """
 
 
