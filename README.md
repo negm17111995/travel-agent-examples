@@ -1,5 +1,9 @@
 # Travel agent examples for the MAQAMI Travel MCP server
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![MCP server: MAQAMI Travel](https://img.shields.io/badge/MCP_server-MAQAMI_Travel-blue)](https://github.com/negm17111995/mcp-server)
+[![Transport: Streamable HTTP](https://img.shields.io/badge/transport-Streamable_HTTP-informational)](https://github.com/negm17111995/mcp-server#other-streamable-http-clients)
+
 Small, runnable examples that connect popular agent frameworks to the [MAQAMI Travel MCP server](https://github.com/negm17111995/mcp-server), the official remote MCP server for [MAQAMI](https://maqami.co), a hotel and flight booking platform with 3M+ hotels.
 
 The server is hosted at `https://mcp.maqami.co/` (Streamable HTTP, no API key). Each example builds a terminal travel assistant that can search hotels and flights, look up places, airports and hotel details, and then prebook and book after you approve.
@@ -59,6 +63,10 @@ python -m py_compile openai-agents-python/travel_agent.py langchain-python/trave
 ## Other clients
 
 To connect Claude, ChatGPT, Cursor, VS Code, Codex, Gemini CLI and other MCP clients without code, see the setup guide in the [server repository](https://github.com/negm17111995/mcp-server).
+
+## Contributing
+
+Examples for other frameworks are welcome, as long as they keep the same booking-safety rule and their checks run without calling the live endpoint. For questions about the server itself, use the [server repository](https://github.com/negm17111995/mcp-server/discussions). Report security issues as described in its [security policy](https://github.com/negm17111995/mcp-server/blob/main/SECURITY.md).
 
 ## License
 
