@@ -46,9 +46,15 @@ The examples use OpenAI models by default. Each framework supports other provide
 | `MAQAMI_MCP_URL` | `https://mcp.maqami.co/` | MCP endpoint. Override it to point at a local mock server while developing. |
 | `OPENAI_MODEL` / `LANGCHAIN_MODEL` | `gpt-5.4-mini` / `openai:gpt-5.4-mini` | Model used by the agent. |
 
-## What CI checks
+## Checks
 
-CI runs static checks only (Ruff, Python byte-compilation and `tsc --noEmit`). It never connects to the MAQAMI endpoint.
+The examples are checked statically before each change, without connecting to the MAQAMI endpoint:
+
+```bash
+ruff check . && ruff format --check .
+python -m py_compile openai-agents-python/travel_agent.py langchain-python/travel_agent.py
+(cd vercel-ai-sdk && npm ci && npm run typecheck)
+```
 
 ## Other clients
 
